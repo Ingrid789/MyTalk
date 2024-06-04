@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MyTalk</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <script src="https://kit.fontawesome.com/49f46e7382.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <section class="section">
+        <div class="container is-max-widescreen">
+            <h1 class="title is-2 has-text-centered">
+                Make Your Actor Talk: Generalizable and High-Fidelity Lip Sync with Motion and Appearance Disentanglement
+            </h1>
+            <p class="subtitle is-4 has-text-centered">
+                 <br>
+            </p>
+        </div>
+        <div class="container is-max-desktop">
+            <p class="subtitle is-6 has-text-centered authors" style="line-height: 1.8; font-size:18px;">
+                <span>
+                    <a href="https://ingrid789.github.io/IngridYu/">Runyi&nbsp;Yu</a>
+                </span>
+                <span>
+                    <a href="https://www.microsoft.com/en-us/research/people/tianyuhe">Tianyu&nbsp;He</a>
+                </span>
+                <span>
+                    <a href="mailto:annyzhang@buaa.edu.cn">Ailing&nbsp;Zhang</a>
+                </span>
+                <span>
+                    <a href="https://wangyuchi369.github.io/">Yuchi&nbsp;Wang</a>
+                </span>
+                <span>
+                    <a href="https://leoguojl.me/">Junliang&nbsp;Guo</a>
+                </span>
+                <span>
+                    <a href="https://tan-xu.github.io/">Xu&nbsp;Tan</a>
+                </span>
+                <span>
+                    <a href="mailto:liuchang2022@tsinghua.edu.cn">Chang&nbsp;Liu</a>
+                </span>
+                <span>
+                    <a href="https://xusun26.github.io/">Jie&nbsp;Chen</a>
+                </span>
+                <span>
+                    <a href="https://sites.google.com/view/jiangbian" class="has-tooltip-bottom" data-tooltip="† indicates corresponding author">Jiang&nbsp;Bian</a>
+                </span>
+                
+            </p>
+            <p class="subtitle is-6 has-text-centered authors" style="line-height: 1.3;font-size:17px;">
+                Peking University
+                <!-- <span>
+                    <sup>1</sup>Peking University
+                </span>
+                <span>
+                    <sup>2</sup>Microsoft
+                </span>
+                <span>
+                    <sup>3</sup>Zhejiang University
+                </span> -->
+            </p>
+        </div>
+    
+    
+    </section>
+
+    <section>
+        <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <hr style="margin-top:0px">
+                <p><center><strong>Lip Sync on AI-Generated Characters</strong></center></p>
+                <p></p>
+                <table style="table-layout: fixed;">
+                <tbody>
+                    <tr>
+                        <td width="48.5%"> <video width="95%" controls> <source src="video/0_generalization_case1.mp4" type="video/mp4"> </video> </td>
+                        <td width="26%"> <video width="95%" controls> <source src="video/0_generalization_case4.mp4" type="video/mp4"> </video> </td>
+                        <td width="26%"> <video width="95%" controls> <source src="video/0_generalization_case3.mp4" type="video/mp4"> </video> </td>
+                    </tr>
+                </tbody>
+                </table>
+                <hr style="margin-top:0px">
+                <p><center><strong>Lip Sync on Real Characters</strong></center></p>
+                <p></p>
+                <table style="table-layout: fixed;">
+                <tbody>
+                    <tr>
+                        <td width="33%"> <video width="95%" controls> <source src="video/0_editing_case1.mp4" type="video/mp4"> </video> </td>
+                        <td width="33%"> <video width="95%" controls> <source src="video/0_editing_case3.mp4" type="video/mp4"> </video> </td>
+                        <td width="33%"> <video width="95%" controls> <source src="video/0_editing_case2.mp4" type="video/mp4"> </video> </td>
+                    </tr>
+                </tbody>
+                </table>
+                <hr style="margin-top:0px">
+                <table style="table-layout: fixed;">
+                <tbody>
+                    <tr>
+                        <td width="49%"> <span><center><strong> <a href="#appearcontrol">Appearance Controllable Lip Sync Generation</a> </strong></center></span> </td>
+                        <td width="49%"> <span><center><strong> <a href="#emotioncontrol">Emotion Controllable Lip Sync Generation</a> </strong></center></span> </td>
+                    </tr>
+                    <tr>
+                        <td width="49%"> <video width="95%" controls> <source src="video/0_appear_control_case1.mp4" type="video/mp4"> </video> </td>
+                        <td width="49%"> <video width="95%" controls> <source src="video/0_emtion_control_case1.mp4" type="video/mp4"> </video> </td>
+                    </tr>
+                </tbody>
+                </table>
+            </div>
+        </div>
+        </div>
+    <br>
+    </section>
+    
+    <section class="section hero is-light">
+        <div class="container is-max-desktop">
+            <h1 class="title is-4">
+                Abstract
+            </h1>
+            <div class="content has-text-justified-desktop">
+                <p> We aim to edit the lip movements in talking video according to the given speech while preserving 
+                    the personal identity and visual details. The task can be decomposed into two sub-problems: 
+                    (1) speech-driven lip motion generation and (2) visual appearance synthesis. 
+                </p>
+                <p>
+                    Current solutions handle the two sub-problems within a single generative model, resulting in a challenging trade-off 
+                    between lip-sync quality and visual details preservation. Instead, we propose to disentangle the 
+                    motion and appearance, and then generate them one by one with a speech-to-motion diffusion model 
+                    and a motion-conditioned appearance generation model. 
+                </p>
+                <p>
+                    However, there still remain challenges in each stage, such as motion-aware identity 
+                    preservation in (1) and visual details preservation in (2). Therefore, to preserve 
+                    personal identity, we adopt landmarks to represent the motion, and further employ 
+                    a landmark-based identity loss. To capture motion-agnostic visual details, we use 
+                    separate encoders to encode the lip, non-lip appearance and motion, and then integrate 
+                    them with a learned fusion module. We train MyTalk on a large-scale and diverse dataset. 
+                </p>  
+                <p>
+                    Experiments show that our method generalizes well to the unknown, even out-of-domain 
+                    person, in terms of both lip sync and visual detail preservation.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container is-max-desktop">
+            <h1 class="title is-4">
+                Method
+            </h1>
+            <div class="content has-text-justified-desktop">
+                <img class="mb-5" src="img/fig2_method.png">
+                <p>
+                    Our proposed MyTalk adopts a <strong>motion-appearance disentangled</strong> two-stage framework 
+                    to realize talking video lip sync. (a) In the first stage, we adopt a speech-driven motion 
+                    generation model to generate motion (i.e., landmark) sequences from the input speech with the 
+                    diffusion model. (b) To better preserve the motion identity, we design an identity extractor and 
+                    the corresponding identity loss in the motion generation model. (c) In the second stage, we use 
+                    separate encoders to encode the motion-agnostic lip, non-lip appearance, and the generated motion. 
+                    The encoded representations are fudsed with a FusionNet and decoded to the output video.
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section pt-0">
+        <div class="container is-max-desktop">
+            <h1 class="title is-4">
+                Quality Comparison
+            </h1>
+            <div class="content has-text-justified-desktop">
+                <video controls="" width="100%">
+                    <source src="video/1_Quality_Comparison.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <section class="section pt-0">
+        <div class="container is-max-desktop">
+            <h1 class="title is-4">
+                Appearance Controllable Lip Sync Generation<a name="appearcontrol"></a>
+            </h1>
+            <video controls="" width="100%">
+                <source src="video/2_Appear_Control.mp4" type="video/mp4">
+            </video>
+            <p>
+                Benefiting from our disentangled modeling, MyTalk can accurately integrate the appearance and motion conditions into generated videos as separate factors, 
+                which enables us to edit the lip region appearance by providing the model with a variety of reference images.
+            </p>
+        </div>
+    </section>
+    
+    <section class="section pt-0">
+        <div class="container is-max-desktop">
+            <h1 class="title is-4">
+                Emotion Controllable Lip Sync Generation<a name="emotioncontrol"></a>
+            </h1>
+            <div class="content has-text-justified-desktop">
+                <video controls="" width="100%">
+                    <source src="video/3_Emtion_Control.mp4" type="video/mp4">
+                </video>
+                <p>
+                    In addition, we can emotionally control the talking video by using the emotion reference to guide both motion and appearance generation.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section hero is-light">
+        <div class="container is-max-desktop">
+            <h1 class="title is-4">
+                Risks and responsible AI considerations
+            </h1>
+            <div class="content has-text-justified-desktop">
+                <p>
+                    MyTalk focuses on generating lip-syncing for avatars, with the goal of enhancing positive applications such as language interpretation and generated AI avatar talking.
+                    We are committed to developing AI responsibly to improve human welfare, while being aware of the potential for misuse like impersonation.
+                </p>
+                <p>
+                    To ensure our technology is used ethically and complies with regulations, we will not release APIs, products, or detailed implementations until we are certain of responsible usage.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <br>
+    <section class="section pt-0">
+        <div class="container is-max-desktop">
+            <h1 class="title is-4">
+                Citation
+            </h1>
+            <pre>
+                @misc{wang2024instructavatar,
+                    title={InstructAvatar: Text-Guided Emotion and Motion Control for Avatar Generation}, 
+                    author={Yuchi Wang and Junliang Guo and Jianhong Bai and Runyi Yu and Tianyu He and Xu Tan and Xu Sun and Jiang Bian},
+                    year={2024},
+                    eprint={2405.15758},
+                    archivePrefix={arXiv},
+                    primaryClass={cs.CV}
+                }
+            </pre>
+        </div>
+    </section>
+    
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p>
+                </br>This page is for research demonstration purposes only.</br>
+                </br>The website template was adapted from <a href=https://microsoft.github.io/FaceSynthetics>here</a></br>
+                </br>The website icon was adapted from <a href=https://www.flaticon.com/free-icons/star>here</a></br>
+            </p>
+        </div>
+    </footer>
+</body>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        
+        // Get all "navbar-burger" elements
+        const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+        // Check if there are any navbar burgers
+        if ($navbarBurgers.length > 0) {
+
+            // Add a click event on each of them
+            $navbarBurgers.forEach(el => {
+                el.addEventListener('click', () => {
+
+                    // Get the target from the "data-target" attribute
+                    const target = el.dataset.target;
+                    const $target = document.getElementById(target);
+
+                    // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+                    el.classList.toggle('is-active');
+                    $target.classList.toggle('is-active');
+
+                });
+            });
+        }
+    });
+</script>
+
+</html>
