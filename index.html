@@ -64,6 +64,15 @@
                 </span>
             </p>
         </div>
+        <div class="container is-max-desktop has-text-centered mt-5">
+            <a href="https://arxiv.org/pdf/xxxx.xxxxx" class="button is-rounded is-link is-light mr-2">
+                <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                <span>Paper</span>
+            </a>
+            <a href="https://arxiv.org/abs/xxxx.xxxxx" class="button is-rounded is-link is-light mr-2">
+                <span class="icon"><i class="ai ai-arxiv"></i></span>
+                <span>arXiv</span>
+            </a>
     </section>
 
     <section>
@@ -71,7 +80,7 @@
         <div class="row">
             <div class="col-12 text-center">
                 <hr style="margin-top:0px">
-                <p style="font-size: 24px; text-align: center;"><strong>Lip Sync on AI-Generated Characters</strong> (incorporate with video generation methods)</p>
+                <p style="font-size: 24px; text-align: center;"><strong>Lip Sync on AI-Generated Characters</strong></p>
                 <p></p>
                 <table style="table-layout: fixed;">
                     <tbody>
@@ -92,18 +101,6 @@
                     </tbody>
                 </table>
                 <hr style="margin-top:0px">
-                <p style="font-size: 24px; text-align: center;"><strong>Video Language Interpretation</strong> (incorporate with TTS methods)</p>
-                <p></p>
-                <table style="table-layout: fixed;">
-                <tbody>
-                    <tr>
-                        <td width="43%"> <center><video width="92%" controls> <source src="video/0_language_case1.mp4" type="video/mp4"> </video></center> </td>
-                        <td width="28%"> <center><video width="95%" controls> <source src="video/0_language_case2.mp4" type="video/mp4"> </video></center> </td>
-                        <td width="28.3%"> <center><video width="95%" controls> <source src="video/0_language_case3.mp4" type="video/mp4"> </video></center> </td>
-                    </tr>
-                </tbody>
-                </table>
-                <hr style="margin-top:0px">
                 <p style="font-size: 24px; text-align: center;"><strong>Lip Sync on Real Characters</strong></p>
                 <p></p>
                 <table style="table-layout: fixed;">
@@ -116,18 +113,42 @@
                 </tbody>
                 </table>
                 <hr style="margin-top:0px">
+                <p style="font-size: 24px; text-align: center;"><strong>Lip Sync from Different Languages</strong> (with speech translated to Chinese)</p>
+                <p></p>
                 <table style="table-layout: fixed;">
                 <tbody>
                     <tr>
-                        <td width="49%"> <span><center><strong> <a href="#appearcontrol"><p style="font-size: 24px;">Appearance Controllable Lip Sync Generation</p></a> </strong></center></span> </td>
-                        <td width="49%"> <span><center><strong> <a href="#emotioncontrol"><p style="font-size: 24px;">Emotion Controllable Lip Sync Generation</p></a> </strong></center></span> </td>
+                        <td width="43%"> <center><video width="92%" controls> <source src="video/0_language_case1.mp4" type="video/mp4"> </video></center> </td>
+                        <td width="28%"> <center><video width="95%" controls> <source src="video/0_language_case2.mp4" type="video/mp4"> </video></center> </td>
+                        <td width="28.3%"> <center><video width="95%" controls> <source src="video/0_language_case3.mp4" type="video/mp4"> </video></center> </td>
+                    </tr>
+                </tbody>
+                </table>
+
+                <hr style="margin-top:0px">
+                <p style="font-size: 24px; text-align: center;"><strong><a href="#appearcontrol"><p style="font-size: 24px;">Appearance Controllable Lip Sync</p></a></strong></p>
+                <p></p>
+                <table style="table-layout: fixed;">
+                <tbody>
+                    <tr>
+                        <td width="49%"> <center><video width="95%" controls> <source src="video/0_appear_control_case1.mp4" type="video/mp4"> </video></center> </td>
+                        <td width="49%"> <center><video width="95%" controls> <source src="video/0_appear_control_case2.mp4" type="video/mp4"> </video></center> </td>
+                    </tr>
+                </tbody>
+                </table>
+                <!-- <hr style="margin-top:0px">
+                <table style="table-layout: fixed;">
+                <tbody>
+                    <tr>
+                        <td width="49%"> <span><center><strong> <a href="#appearcontrol"><p style="font-size: 24px;">Appearance Controllable Lip Sync</p></a> </strong></center></span> </td>
+                        <td width="49%"> <span><center><strong> <a href="#emotioncontrol"><p style="font-size: 24px;">Emotion Controllable Lip sync</p></a> </strong></center></span> </td>
                     </tr>
                     <tr>
                         <td width="49%"> <center><video width="95%" controls> <source src="video/0_appear_control_case1.mp4" type="video/mp4"> </video></center> </td>
                         <td width="49%"> <center><video width="95%" controls> <source src="video/0_emtion_control_case1.mp4" type="video/mp4"> </video></center> </td>
                     </tr>
                 </tbody>
-                </table>
+                </table> -->
             </div>
         </div>
         </div>
@@ -180,7 +201,7 @@
                     diffusion model. (b) To better preserve the motion identity, we design an identity extractor and 
                     the corresponding identity loss in the motion generation model. (c) In the second stage, we use 
                     separate encoders to encode the motion-agnostic lip, non-lip appearance, and the generated motion. 
-                    The encoded representations are fudsed with a FusionNet and decoded to the output video.
+                    The encoded representations are fused with a FusionNet and decoded to the output video.
                 </p>
             </div>
         </div>
@@ -254,7 +275,7 @@
                 Citation
             </h1>
             <pre>
-                @misc{wang2024instructavatar,
+                @misc{yu2024make,
                     title={Make Your Actor Talk: Generalizable and High-Fidelity Lip Sync with Motion and Appearance Disentanglement}, 
                     author={Runyi Yu and Tianyu He and Ailing Zhang and Yuchi Wang and Junliang Guo and Xu Tan and Chang Liu and Jie Chen and Jiang Bian},
                     year={2024},
